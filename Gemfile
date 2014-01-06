@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rocks', :path => '../rocks'
+gem 'rocks', :path => '../rubyontherocks'
 
 group :development  do
-	#gem 'rerun'
+	gem 'rerun'
 end

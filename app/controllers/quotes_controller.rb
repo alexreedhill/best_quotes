@@ -11,7 +11,7 @@ class QuotesController < Rocks::Controller
 	end
 
 	def quote_1
-		quote_1 = Rocks::Model::FileModel.find(1)
+		quote_1 = FileModel.find(1)
 		render :quote, :obj => quote_1
 	end
 
