@@ -1,4 +1,4 @@
 <% quotes.each do |q| %>
 	<p><%= q["quote"] %></p>
-	<p>Submitter: <a href="/quotes/find_by_submitter/<%= q['submitter'] %>"><%= q['submitter'] %></a>
+	<p>Submitter: <a href="/quotes/submitter/<%= q['submitter'] %>"><%= q['submitter'] %></a>
 <% end %>
