@@ -1,0 +1,4 @@
+<h3>Quotes submitted by <%= quotes[0]['submitter'] %></h3>
+<% quotes.each do |q| %>
+  <p><%= q["quote"] %></p>
+<% end %>

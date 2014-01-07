@@ -12,7 +12,7 @@ class QuotesController < Rocks::Controller
 
 	def quote_1
 		quote_1 = FileModel.find(1)
-		render :quote, :obj => quote_1
+		render :a_quote, :obj => quote_1
 	end
 
 	def new_quote
@@ -23,6 +23,15 @@ class QuotesController < Rocks::Controller
 		}
 		m = FileModel.create attrs
 		render :quote, :obj => m
+	end
+
+	def update_quote
+		quote = FileModel.save(env)
+	end
+
+	def submitter
+		quotes = FileModel.find_all_by_submitter(env)
+		render :submitter, :quotes => quotes
 	end
 
 	def exception

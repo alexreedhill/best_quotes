@@ -10,14 +10,20 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    coderay (1.1.0)
     erubis (2.7.0)
     ffi (1.9.3)
     listen (1.0.3)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
+    method_source (0.8.2)
     mime-types (2.0)
     multi_json (1.8.2)
+    pry (0.9.12.3)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.5.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.3)
@@ -28,10 +34,12 @@ GEM
       listen (~> 1.0.3)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    slop (3.4.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  pry
   rerun
   rocks!
