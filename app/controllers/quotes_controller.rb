@@ -4,10 +4,15 @@ class QuotesController < Rocks::Controller
 		quotes = FileModel.all
 		render :index, :quotes => quotes
 	end
-	
+
 	def a_quote
 		controller_name = self.class.to_s
 		render :a_quote, :noun => :winking, :controller_name => controller_name
+	end
+
+	def show
+		quote = FileModel.find(params["id"])
+		render :quote, :obj => quote
 	end
 
 	def quote_1
@@ -34,8 +39,13 @@ class QuotesController < Rocks::Controller
 		render :submitter, :quotes => quotes
 	end
 
+	def attribution
+		quotes = FileModel.find_all_by_attribution(env)
+		render :attribution, :quotes => quotes
+	end
+
 	def exception
 		raise 'Does not compute!!!'
 	end
-	
+
 end
