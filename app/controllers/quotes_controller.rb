@@ -2,23 +2,20 @@ class QuotesController < Rocks::Controller
 
 	def index
 		quotes = FileModel.all
-		render :index, :quotes => quotes
 	end
 
 	def a_quote
 		controller_name = self.class.to_s
-		render :a_quote, :noun => :winking, :controller_name => controller_name
+		render_response :a_quote, :noun => :winking, :controller_name => controller_name
 	end
 
 	def show
-		quote = FileModel.find(params["id"])
-		ua = request.user_agent
-		render_response :quote, :obj => quote, :ua => ua
+		{ :quote => FileModel.find(params["id"]), :ua => request.user_agent }
 	end
 
 	def quote_1
 		quote_1 = FileModel.find(1)
-		render :a_quote, :obj => quote_1
+		render_response :quote, :quote => quote_1
 	end
 
 	def new_quote
@@ -28,7 +25,7 @@ class QuotesController < Rocks::Controller
 			"attribution" => "Me!"
 		}
 		m = FileModel.create attrs
-		render :quote, :obj => m
+		render_response :quote, :quote => m
 	end
 
 	def update_quote
@@ -37,12 +34,11 @@ class QuotesController < Rocks::Controller
 
 	def submitter
 		quotes = FileModel.find_all_by_submitter(env)
-		render :submitter, :quotes => quotes
 	end
 
 	def attribution
 		quotes = FileModel.find_all_by_attribution(env)
-		render :attribution, :quotes => quotes
+		render_response :attribution, :quotes => quotes
 	end
 
 	def exception
