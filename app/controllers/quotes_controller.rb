@@ -1,7 +1,8 @@
 class QuotesController < Rocks::Controller
 
 	def index
-		quotes = FileModel.all
+		# quotes = FileModel.all
+		redirect_to "/quotes/show?id=1"
 	end
 
 	def a_quote
