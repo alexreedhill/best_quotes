@@ -6,7 +6,7 @@ class QuotesController < Rocks::Controller
 
 	def a_quote
 		controller_name = self.class.to_s
-		render_response :a_quote, :noun => :winking, :controller_name => controller_name
+		render :a_quote, :noun => :winking, :controller_name => controller_name
 	end
 
 	def show
@@ -15,7 +15,7 @@ class QuotesController < Rocks::Controller
 
 	def quote_1
 		quote_1 = FileModel.find(1)
-		render_response :quote, :quote => quote_1
+		render :quote, :quote => quote_1
 	end
 
 	def new_quote
@@ -25,7 +25,7 @@ class QuotesController < Rocks::Controller
 			"attribution" => "Me!"
 		}
 		m = FileModel.create attrs
-		render_response :quote, :quote => m
+		render :quote, :quote => m
 	end
 
 	def update_quote
@@ -38,7 +38,7 @@ class QuotesController < Rocks::Controller
 
 	def attribution
 		quotes = FileModel.find_all_by_attribution(env)
-		render_response :attribution, :quotes => quotes
+		render :attribution, :quotes => quotes
 	end
 
 	def exception
